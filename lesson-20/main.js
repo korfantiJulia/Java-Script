@@ -243,6 +243,19 @@ console.log(ageClassification(66));
 // console.log(oddFn(15)) // [1, 3, 5, 7, 9, 11, 13, 15]
 // console.log(oddFn(20)) // [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
 
+function oddFn(n) {
+  const arr2 = [];
+  let j = 1;
+  while (j <= n) {
+    arr2.push(j);
+    j += 2;
+  }
+
+  return arr2;
+}
+
+console.log(oddFn(30));
+
 /*
  * #8
  *
@@ -283,3 +296,28 @@ console.log(ageClassification(66));
 // console.log(mainFunc(2, 5, cbPow)) // 32
 // console.log(mainFunc(2, 5, cbAdd)) // 7
 // console.log(mainFunc(2, 5, 'not a func')) // false
+
+function mainFunc(a, b, callback) {
+  if (typeof callback !== "function") {
+    return false;
+  }
+
+  return callback(a, b);
+}
+
+function cbRandom(a, b) {
+  return b - Math.floor(Math.random() * (b - a + 1));
+}
+
+function cbPow(a, b) {
+  return Math.pow(a, b);
+}
+
+function cbAdd(a, b) {
+  return a + b;
+}
+
+console.log(mainFunc(1, 15, cbRandom));
+console.log(mainFunc(5, 7, cbPow));
+console.log(mainFunc(3, 8, cbAdd));
+console.log(mainFunc(2, 5, "not a func"));
